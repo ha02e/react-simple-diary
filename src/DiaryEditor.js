@@ -6,6 +6,13 @@ const DiaryEditor = () => {
     content: "",
   });
 
+  const handleChangeState = (e) => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="DiaryEditor">
       <h2>오늘의 일기</h2>
@@ -14,23 +21,14 @@ const DiaryEditor = () => {
           name="author"
           value={state.author}
           //값이 변경됐을 때 수행
-          onChange={(e) => {
-            setState({
-              ...state,
-              author: e.target.value,
-            }); //값이 변화할 때마다 그 값으로 업데이트 하기
-          }}
+          onChange={handleChangeState}
         />
       </div>
       <div>
         <textarea
+          name="content"
           value={state.content}
-          onChange={(e) => {
-            setState({
-              ...state,
-              content: e.target.value,
-            });
-          }}
+          onChange={handleChangeState}
         />
       </div>
     </div>
