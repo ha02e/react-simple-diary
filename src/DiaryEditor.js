@@ -16,8 +16,8 @@ const DiaryEditor = () => {
           //값이 변경됐을 때 수행
           onChange={(e) => {
             setState({
+              ...state,
               author: e.target.value,
-              content: state.content,
             }); //값이 변화할 때마다 그 값으로 업데이트 하기
           }}
         />
@@ -27,8 +27,8 @@ const DiaryEditor = () => {
           value={state.content}
           onChange={(e) => {
             setState({
+              ...state,
               content: e.target.value,
-              author: state.author,
             });
           }}
         />
