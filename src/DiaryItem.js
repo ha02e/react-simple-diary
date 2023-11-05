@@ -40,8 +40,18 @@ const DiaryItem = ({
           <>{content}</>
         )}
       </div>
-      <button onClick={handleRemove}>삭제하기</button>
-      <button onClick={toggleIsEdit}>수정하기</button>
+
+      {isEdit ? (
+        <>
+          <button onClick={toggleIsEdit}>수정취소</button>
+          <button>수정완료</button>
+        </>
+      ) : (
+        <>
+          <button onClick={handleRemove}>삭제하기</button>
+          <button onClick={toggleIsEdit}>수정하기</button>
+        </>
+      )}
     </div>
   );
 };
